@@ -1,15 +1,15 @@
 FROM alpine
 
-LABEL maintainer="Lachlan Evenson <lachlan.evenson@gmail.com>"
+LABEL maintainer="Paulo André Soares <pauloandresoares@gmail.com>"
 
 ARG VCS_REF
 ARG BUILD_DATE
 
 # Metadata
-LABEL org.opencontainers.image.title="lachlanevenson/k8s-helm" \
+LABEL org.opencontainers.image.title="unicornsquad/k8s-helm" \
       org.opencontainers.image.url="https://helm.sh/docs/" \
       org.opencontainers.image.revision=$VCS_REF \
-      org.opencontainers.image.source="https://github.com/lachie83/k8s-helm" \
+      org.opencontainers.image.source="https://github.com/theunicornsquad/k8s-helm" \
       org.opencontainers.image.created=$BUILD_DATE
 
 ENV HELM_LATEST_VERSION="v3.1.1"

@@ -2,7 +2,9 @@ name: Docker Image CI
 
 on:
   push:
-    branches: [ master ]
+    branches:
+      - master
+      - 'v*'
   pull_request:
     branches: [ master ]
 
@@ -21,3 +23,8 @@ jobs:
     - name: Build docker image
       run: GIT_BRANCH=${GITHUB_REF##*/} make docker_build
 
+    - name: Test docker image
+      run: GIT_BRANCH=${GITHUB_REF##*/} make test
+
+    - name: Push docker image
+      run: GIT_BRANCH=${GITHUB_REF##*/} docker_push
