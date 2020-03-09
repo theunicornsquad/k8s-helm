@@ -14,9 +14,10 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-
-    - name: Build the Docker image
+    
+    - name: Docker login
       run: docker login -u ${{secrets.DOCKER_USERNAME}} -p ${{secrets.DOCKER_PASSWORD}}
 
-    - name: Prin env
-      run: echo ${{GITHUB_HEAD_REF}}      
+    - name: Build docker image
+      run: GIT_BRANCH=${GITHUB_HEAD_REF} make docker_build
+
