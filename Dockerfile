@@ -19,11 +19,10 @@ RUN apk add --update ca-certificates \
  && wget -q https://get.helm.sh/helm-${HELM_LATEST_VERSION}-linux-amd64.tar.gz \
  && tar -xf helm-${HELM_LATEST_VERSION}-linux-amd64.tar.gz \
  && mv linux-amd64/helm /usr/local/bin \
+ && /usr/local/bin/helm plugin install https://github.com/chartmuseum/helm-push \
  && apk del --purge deps \
  && rm /var/cache/apk/* \
  && rm -f /helm-${HELM_LATEST_VERSION}-linux-amd64.tar.gz
-
-RUN /usr/local/bin/helm plugin install https://github.com/chartmuseum/helm-push
 
 ENTRYPOINT ["helm"]
 CMD ["help"]
