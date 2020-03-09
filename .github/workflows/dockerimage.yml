@@ -19,5 +19,5 @@ jobs:
       run: docker login -u ${{secrets.DOCKER_USERNAME}} -p ${{secrets.DOCKER_PASSWORD}}
 
     - name: Build docker image
-      run: GIT_BRANCH=${GITHUB_REF} make docker_build
+      run: GIT_BRANCH=${GITHUB_REF##*/} make docker_build
 
