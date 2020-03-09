@@ -15,5 +15,5 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Build the Docker image
-      run: docker login --username ${secret.DOCKER_USERNAME} --password ${DOCKER_PASSWORD}
+      run: docker login --username ${{secrets.DOCKER_USERNAME}}--password ${{secrets.DOCKER_PASSWORD}}
       
